@@ -20,4 +20,5 @@ from primeiroprojetodjango_website import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('admin/', admin.site.urls),
+    path('pergunta_form/', views.pergunta_form, name='pergunta_form'),
 ]
