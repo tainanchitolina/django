@@ -1,3 +1,4 @@
+#teste pra subir
 from django.apps import AppConfig
 
 
