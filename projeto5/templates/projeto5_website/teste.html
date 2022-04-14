@@ -1,0 +1,43 @@
+{% extends "projeto5_website/base.html" %}
+{% block content %}
+
+  <form method="post">
+    {% csrf_token %}
+
+    <div class="row">
+      <div class="col-md-2">
+        <input id="ra" type="text" class="form-control" placeholder="Digite seu RA" name="ra" >
+      </div>
+      <div class="col-md-6">
+        <input id="name" name="nome" type="text" class="form-control" placeholder="Nome Completo" aria-label="Username" aria-describedby="basic-addon1">
+    
+      </div>
+    </div>
+    <br>  
+  <div class="row">
+   <div class="col-md-8">
+      <input name="email" type="email" class="form-control" id="e-mail" placeholder="Digite seu Email">
+    </div>
+  </div>
+
+    {% for pergunta,alternativas in perguntas.items %}
+      <h3>{{pergunta}}</h3>
+      <fieldset>
+        {% for alternativa in alternativas %}
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="{{pergunta}}" value="{{alternativa.perfil}}">
+          <label class="form-check-label">{{alternativa.conteudo}}
+
+          </label>
+        </div>
+       
+        {% endfor %}
+      </fieldset>
+    {% endfor %}
+    <button id="enviar" class="btn btn-primary"  type="submit ">Enviar</button>
+
+    
+  </form>
+
+  
+{% endblock %}
